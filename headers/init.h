@@ -1,7 +1,7 @@
 #include <ncurses.h>
 struct interface_section {
   WINDOW* window;
-  struct interface_border;
+  struct interface_border* border;
   int startx, starty, height, width;
 };
 
