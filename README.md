@@ -5,4 +5,4 @@ Requirements:
 - Linux only
 - Need ncurses library installed: `sudo apt-get install libncurses5-dev libncursesw5-dev`
 
-To compile: gcc -Iheaders/ main.c -lncurses -o main
+To compile: gcc -Iheaders/ main.c module/interface.c -lncurses -o main
