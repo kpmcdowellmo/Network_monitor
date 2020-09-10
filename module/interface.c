@@ -1,9 +1,11 @@
-#include "headers/interfaces.h"
+#include "../headers/interface.h"
 #include <net/if.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
+
+const int8_t INITIAL_SIZE = 1;
 
 void add_interface_name(struct network_interfaces *interface_storage,
                         const char *interface_name) {
@@ -16,12 +18,10 @@ void add_interface_name(struct network_interfaces *interface_storage,
 
 void free_interface_names(struct network_interfaces *interfaces) {
   int8_t end = INITIAL_SIZE;
-  if (interfaces->num_interfaces > INITIAL_SIZE) {
+  if (interfaces->num_interfaces > INITIAL_SIZE)
     end = interfaces->num_interfaces;
-  }
-  for (int8_t i = 0; i < end; ++i) {
+  for (int8_t i = 0; i < end; ++i)
     free(interfaces->interface_names[i]);
-  }
   free(interfaces->interface_names);
 }
 
@@ -41,9 +41,8 @@ struct network_interfaces find_interfaces() {
 
   for (struct if_nameindex *cpy = interface_ptr;
        cpy != NULL && cpy->if_name != NULL; ++cpy) {
-    if (interface_storage.num_interfaces >= INITIAL_SIZE) {
+    if (interface_storage.num_interfaces >= INITIAL_SIZE)
       expand_interface_names(&interface_storage);
-    }
     add_interface_name(&interface_storage, cpy->if_name);
   }
 
