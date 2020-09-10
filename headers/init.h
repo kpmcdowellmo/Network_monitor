@@ -3,10 +3,6 @@
 #include <stdlib.h>
 const int_fast8_t MAX_COLS = 4;
 
-enum {
-
-};
-
 struct interface_border {
   chtype top_right, bottom_right, top_left, bottom_left, right_side, left_side,
       top, bottom;
