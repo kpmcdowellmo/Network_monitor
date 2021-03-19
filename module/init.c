@@ -1,6 +1,8 @@
 #include "../headers/init.h"
 #include <ncurses.h>
 
+const int_fast8_t MAX_COLS = 4;
+
 WINDOW *init_curses() {
   WINDOW *window = initscr();
   int c_break_init = cbreak(), keypad_init = keypad(stdscr, true);
