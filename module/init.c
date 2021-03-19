@@ -60,6 +60,11 @@ struct interface_section build_interface_section(WINDOW *main_window,
   return new_section;
 }
 
+void render_information(struct interface_section* interface){
+  const char* interface_msg = "Interface ID: ";
+  mvprintw(interface->starty + 2, interface->startx + 2, interface_msg);
+}
+
 void create_box(struct interface_section *section) {
   int x = section->startx, y = section->starty, width = section->width,
       height = section->height;
