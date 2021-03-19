@@ -32,8 +32,7 @@ void build_selection_menu(WINDOW *main_window,
   struct interface_section *sections = (struct interface_section *)malloc(
       sizeof(struct interface_section) * interfaces->num_interfaces);
   for (int i = 0, col = 0, row = 0; i < interfaces->num_interfaces; ++i) {
-    printf("Interface id: %d\n", i);
-    sections[i] = build_interface_section(main_window, i, maxX/MAX_COLS, 25, row);
+    sections[i] = build_interface_section(main_window, col, maxX/MAX_COLS, 25, row);
     create_box(&sections[i]);
     if(col++ == MAX_COLS - 1){
         row++;
